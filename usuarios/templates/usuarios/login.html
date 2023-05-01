@@ -1,0 +1,21 @@
+{% extends 'base/index.html' %}
+
+{% block header %}
+<h3 class="display-5 fw-bolder text-white mb-2">Login</h3>
+{% endblock header %}
+{% block contenido %}
+
+{%if form.error%}
+<h3>Hay errores en los datos ingresados.</h3>
+{%endif%}
+
+<form action={% url 'usuarios:login' %} method ='POST'>
+    {% csrf_token %}
+    <table>           
+        {{formulario}}
+    </table>
+    <button>Login</button>
+</form>
+      
+{% endblock contenido %}
+{% block contenido1 %}{% endblock contenido1 %}

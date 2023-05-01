@@ -1,0 +1,21 @@
+{% extends 'base/index.html' %}
+
+{% block header %}
+<h3 class="display-5 fw-bolder text-white mb-2">Registro</h3>
+{% endblock header %}
+{% block contenido %}
+
+{%if form.error%}
+<h3>Revise la informacion ingresada</h3>
+{%endif%}
+
+<form action={% url 'usuarios:registro' %} method ='POST'>
+    {% csrf_token %}
+    <table>           
+        {{formulario}}
+    </table>
+    <button>Registrarse</button>
+</form>
+      
+{% endblock contenido %}
+{% block contenido1 %}{% endblock contenido1 %}
