@@ -1,0 +1,30 @@
+{% extends 'base/index.html' %}
+
+{% block header %}
+{% endblock header %}
+
+
+
+{% block contenido %}
+<h3>Listado de personas</h3>
+<br>
+<form action="" method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" value="Buscar"/>
+    
+      </form>
+
+    {% for pers in filter.qs %}
+    <table>
+      
+      Nombre: {{ pers.nombre }} - Apellido: {{ pers.apellido }} <a href={% url 'inicio:modpersona' pers.id %}>Modificar</a> - <a href={% url 'inicio:bajapersona' pers.id %}>Eliminar</a>
+
+    </table>     
+    {%empty%}
+    <li>No se encontraron personas</li>
+    {% endfor %}
+
+      
+{% endblock contenido %}
+
+{% block contenido1 %}{% endblock contenido1 %}

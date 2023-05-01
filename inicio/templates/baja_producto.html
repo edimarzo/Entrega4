@@ -1,0 +1,24 @@
+{% extends 'base/index.html' %}
+
+{% block header %}
+<title>Baja Productos</title>
+{% endblock header %}
+
+
+{% block contenido %}
+
+
+<h1>Baja Productos</h1>
+
+<form action={% url 'inicio:bajaprod' producto.id %} method="post">
+    {% csrf_token %}
+    <h4>¿Quiere eliminar este producto del listado?</h4>
+    <button class="btn btn-outline-dark">Si, confirmo</button>
+</form>
+<a class="btn btn-outline-dark" href={% url 'inicio:listaprod' %} role="button">No</a>
+
+{% comment %} <p>{{Productos.nombre}} {{Productos.descripcion}}</p> {% endcomment %}
+{% endblock contenido %}
+
+{% block contenido1 %}{% endblock contenido1 %}
+

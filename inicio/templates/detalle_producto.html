@@ -1,0 +1,30 @@
+{% extends 'base/index.html' %}
+
+
+
+{% block contenido %}
+
+<h3>Detalles del Producto {{producto}}</h3>
+
+<ul>
+    <li>Item: {{producto.item}}</li>
+    <li>Descripcion: {{producto.descripcion | safe}}</li>
+    <li>Cantidad: {{producto.stock}}</li>
+</ul>
+
+{% comment %} <p>{{Productos.nombre}} {{Productos.descripcion}}</p> {% endcomment %}
+{% endblock contenido %}
+
+{% block contenido1 %}
+{% endblock contenido1 %}
+
+{% comment %} {% block contenido %}
+<form action={% url 'inicio:AltaProductoFormulario' %} method="POST">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    {% comment %} <input type="submit" value="Crear"> {% endcomment %}
+    {% comment %} <button>Crear</button>
+</form> {% endcomment %}
+

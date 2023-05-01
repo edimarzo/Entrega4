@@ -1,0 +1,30 @@
+{% extends 'base/index.html' %}
+
+{% block header %}
+{% endblock header %}
+
+
+
+{% block contenido %}
+<h3>Listado de productos</h3>
+<br>
+<form action="" method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" value="Buscar"/>
+    
+      </form>
+
+    {% for obj in filter.qs %}
+    <table>
+      
+      Item: {{ obj.item }} - Cantidad: {{ obj.cantidad }} - <a href={% url 'inicio:modprod' obj.id %}>Modificar</a> - <a href={% url 'inicio:bajaprod' obj.id %}>Eliminar</a>
+
+    </table>     
+    {%empty%}
+    <li>No se encontraron productos</li>
+    {% endfor %}
+
+      
+{% endblock contenido %}
+
+{% block contenido1 %}{% endblock contenido1 %}

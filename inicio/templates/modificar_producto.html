@@ -1,0 +1,26 @@
+{% extends 'base/index.html' %}
+
+{% block header %}
+{% endblock header %}
+
+
+{% block h1_header %}
+<h1>Modificar Producto</h1>
+{% endblock h1_header %}
+
+
+{% block contenido %}
+
+<h3>Edición de items</h3>
+<br>
+<form action={% url 'inicio:modprod' producto.id %} method="POST">
+    {% csrf_token %}
+    <table>
+        <p class="h6">Item: {{producto.item}} </p>
+        {{form.media}}
+        {{form}}
+    </table>
+    <button>Modificar</button>
+</form>
+{% endblock contenido %}
+{% block contenido1 %}{% endblock contenido1 %}

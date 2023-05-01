@@ -1,0 +1,24 @@
+{% extends 'base/index.html' %}
+
+{% block header %}
+<title>Baja Agentes</title>
+{% endblock header %}
+
+
+{% block contenido %}
+
+
+<h1>Baja Agentes</h1>
+
+<form action={% url 'inicio:bajapersona' persona.id %} method="post">
+    {% csrf_token %}
+    <h4>¿Quiere eliminar este agente del listado?</h4>
+    <button class="btn btn-outline-dark">Si, confirmo</button>
+</form>
+<a class="btn btn-outline-dark" href={% url 'inicio:listapersona' %} role="button">No</a>
+
+{% comment %} <p>{{Productos.nombre}} {{Productos.descripcion}}</p> {% endcomment %}
+{% endblock contenido %}
+
+{% block contenido1 %}{% endblock contenido1 %}
+

@@ -1,0 +1,30 @@
+{% extends 'base/index.html' %}
+
+{% block header %}
+{% endblock header %}
+
+
+{% block h1_header %}
+<h1>Modificar información de Agente</h1>
+{% endblock h1_header %}
+
+
+{% block contenido %}
+
+<h3>Edición de agentes</h3>
+<br>
+<form action={% url 'inicio:modpersona' persona.id %} method="POST">
+    {% csrf_token %}
+    <table>
+        <p class="h6">
+            Nombre: {{persona.nombre}} 
+
+            Apellido: {{persona.apellido}} 
+        </p>
+        {{form.media}}
+        {{form}}
+    </table>
+    <button>Modificar</button>
+</form>
+{% endblock contenido %}
+{% block contenido1 %}{% endblock contenido1 %}
